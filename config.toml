@@ -1,0 +1,43 @@
+[chain]
+rpc = "https://rpc.testnet.chain.robinhood.com"
+chain_id = 46630
+retry_base_seconds = 1
+max_retries = 3
+chunk_blocks = 2000
+recent_blocks = 10000
+
+[factories.gen1]
+generation = "retired"
+address = "0x4FEbC267e0C24440bcDEF72B5DBC5FE7BED091dF"
+deployment_block = 95916239
+graduation_target_wei = "5000000000000000"
+
+[factories.gen2]
+generation = "legacy"
+address = "0xB5B7A2f6c4EAFa2D73918fcA32d50e2126339eb9"
+deployment_block = 108435450
+
+[factories.gen3]
+generation = "current"
+address = "0x40f1be6faf8DAB9C143cce1a0A04c2075Fb2DF59"
+deployment_block = 115025604
+graduation_target_wei = "5000000000000000000"
+
+[tags]
+rugger_max_seconds = 120
+rugger_reserve_rise = 0.25
+rugger_sell_fraction = 0.70
+rugger_min_launches = 3
+nuke_first_buyers = 10
+nuke_progress = 0.20
+nuke_later_buyers = 3
+nuke_sell_fraction = 0.70
+nuke_min_tokens = 3
+holder_fraction = 0.80
+holder_reserve_rise = 0.50
+holder_min_tokens = 2
+sniper_min_tokens = 5
+
+[clusters]
+co_trade_min_tokens = 3
+faucet_denylist = []
