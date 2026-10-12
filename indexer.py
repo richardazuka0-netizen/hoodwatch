@@ -118,9 +118,9 @@ class ReadOnlyIndexer:
         self.w3 = Web3(HTTPProvider(cfg["chain"]["rpc"], request_kwargs={"timeout": 30}))
         self.chain_id = int(cfg["chain"]["chain_id"])
         self.factories = {v["address"].lower(): v for v in cfg["factories"].values()}
-        self.factory_addresses = list(self.factories)
-        self.factory_topics = [self._topic(EVENTS["TokenLaunched"]), self._topic(EVENTS["TokenLaunchedQuoted"])]
-        self.curve_topics = [self._topic(EVENTS[n]) for n in ("Bought", "Sold", "CurveCompleted", "Graduated")]
+        self.factory_addresses = [Web3.to_checksum_address(addr) for addr in self.factories]
+     
+     self.curve_topics = [self._topic(EVENTS[n]) for n in ("Bought", "Sold", "CurveCompleted", "Graduated")]
         self.stats = RunStats()
         self.block_timestamps: dict[int, int] = {}
 
